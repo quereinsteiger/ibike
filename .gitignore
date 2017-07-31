@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Datenbankänderungen ignorieren
+# ist notwendig, da bei sqlite alles in einer Datei steckt
+*.sqlite
