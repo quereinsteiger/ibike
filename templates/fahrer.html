@@ -1,0 +1,20 @@
+<!Doctype html>
+	<title>Fahrer</title>
+	<body>
+		<h3>Fahrer</h3>
+		<table border=1>
+			<thead>
+				<td>IDFahrer</td>
+				<td>Username</td>
+				<td>Geburtsdatum</td>
+			</thead>
+			{%for row in rows%}
+				<tr>
+					<td>{{row["IDFahrer"]}}</td>
+					<td>{{row["Username"]}}</td>
+					<td>{{row["Geburtsdatum"]}}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>

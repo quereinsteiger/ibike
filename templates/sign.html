@@ -1,0 +1,24 @@
+<html>
+	<title> sign in </title>
+	
+	<body>
+		<form action = "{{ url_for('addrec')}}" method = 'POST'>
+			User<br>
+			<input type = "text" name="user" /><br>
+
+			Vorname<br>
+			<input type = "text" name="vorname" /><br>
+
+			Nachname<br>
+			<input type = "text" name="nachname" /><br>
+
+			Geburtsdatum<br>
+			<input type = "text" name="geb" /><br>
+
+			Geschlecht<br>
+			<input type = "text" name="geschl" /><br>
+			<input type = "submit" value = "submit"/> <br>
+
+		</form>
+	</body>
+</html>
