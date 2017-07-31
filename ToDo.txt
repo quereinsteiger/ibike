@@ -1,0 +1,10 @@
+Das habe ich bisher getan:
+    - Repository online erstellt
+    - Dateien von Pi durch upload hinzugefügt
+    - Repository durch clonen auf Pi übertragen (ursprüngliche Dateien entfernt)
+    - Repository auf meinen Rechner geclont
+
+Die Datenbank (./data/ibike.sqlite) ist eine einzelne datei, ich glaube die kann
+einfach mitgeclont werden...
+
+ 
