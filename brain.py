@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import datetime
 import numpy as np
 import sqlite3 as sql
+from subprocess import Popen, PIPE
 #from zufallswerte import zufallswerte
 
 app=Flask(__name__)
@@ -19,6 +20,7 @@ def hello():
 @app.route('/sign')
 def sign():
     return render_template('sign.html')
+
 
 @app.route("/addrec", methods=['POST','GET'])
 def addrec():
@@ -49,14 +51,23 @@ def addrec():
 def fahrer():
     con=sql.connect('./data/ibike.sqlite')
     con.row_factory=sql.Row
-    
+
     cursor=con.cursor()
     cursor.execute("select * from tblFahrer;")
 
     rows=cursor.fetchall()
     return render_template("fahrer.html", rows=rows)
-        
+
+
+@app.route('/test')
+def run():
+    return render_template('test.html')
+
+@app.route('/action', methods=['plot', 'GET'])
+def action():
+    if request.method == 'plot':
+        process = Popen(['python', './apps/test.py'], stdout = PIPE )
+        return render_template("sign.html")
 
 if __name__== "__main__":
     app.run(host='', port=8000, debug=True)
-    
