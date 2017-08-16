@@ -61,12 +61,13 @@ def fahrer():
 
 @app.route('/test')
 def run():
+    Popen(['python', './apps/test2.py'], stdout = PIPE )
     return render_template('test.html')
 
 @app.route('/action', methods=['plot', 'GET'])
 def action():
     if request.method == 'plot':
-        process = Popen(['python', './apps/test.py'], stdout = PIPE )
+        process = Popen(['python', './apps/test2.py'], stdout = PIPE )
         return render_template("sign.html")
 
 if __name__== "__main__":
