@@ -103,3 +103,20 @@ ENV/
 # Datenbankänderungen ignorieren
 # ist notwendig, da bei sqlite alles in einer Datei steckt
 *.sqlite
+# Bilder ignorieren
+*.png
+
+# eagle Dateien ignorieren
+*.epf
+*.b#1
+*.brd
+*.s#1
+*.s#2
+*.sch
+
+# sql-Diagramme ignorieren
+*.dia
+*.dia~
+
+# pdf-Dateien ignorieren
+*.pdf
