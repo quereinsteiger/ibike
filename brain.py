@@ -61,14 +61,22 @@ def fahrer():
 
 @app.route('/test')
 def run():
+
     Popen(['python', './apps/test2.py'], stdout = PIPE )
     return render_template('test.html')
 
-@app.route('/action', methods=['plot', 'GET'])
+@app.route('/action', methods=['POST', 'GET'])
 def action():
-    if request.method == 'plot':
-        process = Popen(['python', './apps/test2.py'], stdout = PIPE )
-        return render_template("sign.html")
+    if request.method == 'POST':
+        try:
+            a=request.form['basis']
+            Data={'a':a}
+            process=Popen(['python', './apps/test.py'], stdin = PIPE,stdout=PIPE )
+            process.stdin.write(int(a).to_bytes(1, byteorder='little'))
+            process.stdin.close()
+        finally:
+
+            return render_template('action.html', **Data)
 
 if __name__== "__main__":
     app.run(host='', port=8000, debug=True)

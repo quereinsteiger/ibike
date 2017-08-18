@@ -7,4 +7,6 @@ Das habe ich bisher getan:
 Die Datenbank (./data/ibike.sqlite) ist eine einzelne datei, ich glaube die kann
 einfach mitgeclont werden...
 
- 
+
+18.08.2017:
+    - tblFahrer um Körpergröße und Gewicht erweitern!
