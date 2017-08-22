@@ -2,7 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import logging
 from time import clock
+import os
 
+cwd=os.getcwd()
+os.chdir(cwd)
 logging.basicConfig(
     filename="./test.log",
     filemode="w",
@@ -11,7 +14,7 @@ logging.basicConfig(
     datefmt = "%Y.%M.%D %H:%M:%S"
 )
 
-def square(x=10):
+def square(x=150):
     t=clock()
     logging.info("Aufruf")
     x=np.arange(0,x)

@@ -3,7 +3,6 @@ import datetime
 import numpy as np
 import sqlite3 as sql
 from subprocess import Popen, PIPE
-#from zufallswerte import zufallswerte
 
 app=Flask(__name__)
 
@@ -71,11 +70,10 @@ def action():
         try:
             a=request.form['basis']
             Data={'a':a}
-            process=Popen(['python', './apps/test.py'], stdin = PIPE,stdout=PIPE )
-            process.stdin.write(int(a).to_bytes(1, byteorder='little'))
+            process=Popen(['python', 'C:/Users/Tim/Documents/GitHub/ibike/apps/test.py'], stdin = PIPE,stdout=PIPE, cwd="./apps" )
+            process.stdin.write(int(a).to_bytes(4, byteorder='big'))
             process.stdin.close()
         finally:
-
             return render_template('action.html', **Data)
 
 if __name__== "__main__":
