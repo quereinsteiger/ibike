@@ -3,6 +3,7 @@ import datetime
 import numpy as np
 import sqlite3 as sql
 from subprocess import Popen, PIPE
+from apps import objects
 
 app=Flask(__name__)
 
@@ -31,15 +32,10 @@ def addrec():
             nachname = request.form['nachname']
             geb = request.form['geb']
             geschl = request.form['geschl']
-
-            with sql.connect('./data/ibike.sqlite') as con:
-                cursor=con.cursor()
-                cursor.execute("INSERT INTO tblFahrer(Username,Vorname,Nachname,Geburtsdatum,Geschlecht) Values(?,?,?,?,?);", (str(user),str(vorname),str(nachname),str(geb),str(geschl)))
-
-                con.commit()
-
+            driver=objects.fahrer(Username=user, Vorname=vorname, Nachname=nachname, Geburtsdatum=geb, Geschlecht=geschl, Groesse=180, Gewicht=82)
+            driver.anlegen()
         except:
-            con.rollback()
+            #con.rollback()
             msg = "Datensatz konnte nicht hinzugefügt werden"
 
         finally:

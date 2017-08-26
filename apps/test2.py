@@ -11,7 +11,7 @@ logging.basicConfig(
     filemode="w",
     level=logging.DEBUG,
     format = "%(asctime)s [%(levelname)-8s] %(message)s",
-    datefmt = "%Y.%M.%D %H:%M:%S"
+    datefmt = "%Y.%M.%d %H:%M:%S"
 )
 
 def square(x=150):
